@@ -1,5 +1,11 @@
 package discoveryclusterextensioncontract
 
+import (
+	"context"
+	"errors"
+	"fmt"
+)
+
 // / <summary>
 // / Initializes a new instance of the <see cref="AgentException"/> class.
 // / </summary>
@@ -26,4 +32,9 @@ type AgentException struct {
 	/// Gets the message parameters needed to form the error message.
 	/// </summary>
 	MessageParameters map[string]string
+}
+
+// define Error() method on the struct
+func (ae AgentException) Error() string {
+	return fmt.Sprint(ae.ErrorCode)
 }
