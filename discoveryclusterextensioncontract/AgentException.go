@@ -27,6 +27,21 @@ type AgentException struct {
 	ErrorCode AgentErrorCode
 
 	/// <summary>
+    /// The message associated with the error.
+    /// </summary>
+    Message string
+
+	/// <summary>
+    /// The possible causes for the error.
+    /// </summary>
+    PossibleCauses string
+
+	/// <summary>
+    /// The recommended action for resolving the error.
+    /// </summary>
+    RecommendedAction string
+
+	/// <summary>
 	/// Gets the message parameters needed to form the error message.
 	/// </summary>
 	MessageParameters map[string]string
