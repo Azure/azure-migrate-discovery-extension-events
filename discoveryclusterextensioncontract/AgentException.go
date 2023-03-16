@@ -1,8 +1,6 @@
 package discoveryclusterextensioncontract
 
 import (
-	"context"
-	"errors"
 	"fmt"
 )
 
