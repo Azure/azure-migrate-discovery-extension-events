@@ -4,7 +4,6 @@ import (
 	"context"
 	"strings"
 
-	discoveryclusterextensioncontract "github.com/Azure/AzureMigrate-discoveryclusterextension-event/discoveryclusterextensioncontract"
 	"github.com/go-logr/logr"
 	"sigs.k8s.io/controller-runtime/pkg/log"
 )
