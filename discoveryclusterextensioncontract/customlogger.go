@@ -19,6 +19,10 @@ func GetAzureLogger(ctx context.Context, annotationsMap map[string]string) Custo
 	return c
 }
 
+func (c *CustomLogger) GetLogr() logr.Logger {
+	return c.logr
+}
+
 // Adding annotation in custom logger.
 func (c *CustomLogger) addAzureAnnotations(annotationsMap map[string]string) {
 	for annotationkey, annotationvalue := range annotationsMap {
