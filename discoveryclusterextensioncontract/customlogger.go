@@ -36,7 +36,7 @@ func (c *CustomLogger) addAzureAnnotations(annotationsMap map[string]string) {
 }
 
 // Logging Exception Event
-func (c *CustomLogger) LogAgentException(ae discoveryclusterextensioncontract.AgentException) {
+func (c *CustomLogger) LogAgentException(ae AgentException) {
 
 	// todo: add message parameter into message, posssiblecauses, recommended action.
 	logger := c.logr.WithValues("MessageParameters", ae.MessageParameters)
@@ -47,7 +47,7 @@ func (c *CustomLogger) LogAgentException(ae discoveryclusterextensioncontract.Ag
 }
 
 // Logging Telemetry Event
-func (c *CustomLogger) LogTelemetryEvent(te discoveryclusterextensioncontract.TelemetryEvent) {
+func (c *CustomLogger) LogTelemetryEvent(te TelemetryEvent) {
 	logger := c.logr.WithValues("ServiceEventName", "TelemetryEvent")
 	logger = logger.WithValues("TelemetryEventId", te.TelemetryEventId)
 	logger = logger.WithValues("Dimensions", te.Dimensions)
