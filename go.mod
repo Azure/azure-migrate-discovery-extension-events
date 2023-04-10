@@ -1,3 +1,3 @@
-module github.com/Azure/AzureMigrate-discoveryclusterextension-event
+module github.com/Azure/azure-migrate-discovery-extension-events
 
 go 1.19
