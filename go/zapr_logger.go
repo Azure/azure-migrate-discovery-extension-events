@@ -56,13 +56,18 @@ func (c *CustomLogger) LogTelemetryEvent(te TelemetryEvent) {
 }
 
 // Logging Metric Event
-func (c *CustomLogger) LogMetricEvent(metricName string, metricValue int, metricDimensions map[string]string) {
+func (c *CustomLogger) LogMetricEvent(me MetricEvent, metricValue int) {
 	logger := c.logr.WithValues("ServiceEventName", "MetricEvent")
 	logger = logger.WithValues("MetricValue", metricValue)
 
-	for metricDimensionKey, metricDimensionValue := range metricDimensions {
+	for metricDimensionKey, metricDimensionValue := range me.Dimensions {
 		logger = logger.WithValues(metricDimensionKey, metricDimensionValue)
 	}
 
-	logger.Info(metricName)
+	for metricAnnotationKey, metricAnnotationValue := range me.Annotations {
+		logger = logger.WithValues(metricAnnotationKey, metricAnnotationValue)
+	}
+	logger = logger.WithValues("MetricName", string(me.MetricName))
+
+	logger.Info("MetricEvent")
 }
