@@ -2,6 +2,23 @@
 1. Use go get to fetch the module with latest verison ```go get github.com/Azure/azure-migrate-discovery-extension-events```.
 2. For module with specific commit/version use ```go get go get github.com/Azure/azure-migrate-discovery-extension-events@<commit-id>```.
 
+***Usage**
+Import in your respective file
+	discoveryextensionevents "github.com/Azure/azure-migrate-discovery-extension-events/go"
+
+In your reconciler
+azureLogger := discoveryextensionevents.AzureLogger(ctx, cr.GetAnnotations())
+
+For error event logging
+tt := discoveryextensionevents.NullReferenceErrorEvent("adavv")
+	azureLogger.LogErrorEvent(tt)
+
+For telemetry event logging
+	ee := discoveryextensionevents.EntityDiscoveredTelemetryEvent("mybersion", "applicationname", "adad", "adad", "ad")
+	azureLogger.LogTelemetryEvent(ee)
+
+For metric event logging
+
 **To add new Events**
 1. Add new events in the Telemetry.xml, Error.xml or Metrics.xml in  AzureMigrate-ClusterExtensionCommon repo (https://msazure.visualstudio.com/One/_git/AzureMigrate-ClusterExtensionCommon?path=/src/DiscoveryClusterExtension/EventXml).
 
