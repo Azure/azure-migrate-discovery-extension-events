@@ -14,3 +14,14 @@
 - The step 3 adn 4 would be automated in future.
 - The go module should have new events by running the build pipeline on this repo
 https://msazure.visualstudio.com/One/_git/AzureMigrate-ClusterExtensionCommon
+
+** To make changes and to add tags**
+````
+git add .
+git commit -m "Updating read me"
+
+git tag v1.5.0 HEAD -m "Version 1.5.0 released"
+git push origin --tags
+````
+
+https://phoenixnap.com/kb/git-tag-commit
