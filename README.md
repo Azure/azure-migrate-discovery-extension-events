@@ -15,7 +15,9 @@
 - The go module should have new events by running the build pipeline on this repo
 https://msazure.visualstudio.com/One/_git/AzureMigrate-ClusterExtensionCommon
 
-** To make changes and to add tags**
+**To add the tags**
+
+- Add the Tag
 ````
 git add .
 git commit -m "Updating read me"
@@ -24,4 +26,9 @@ git tag v1.5.0 HEAD -m "Version 1.5.0 released"
 git push origin --tags
 ````
 
+- In your source code
+````
+ go get github.com/Azure/azure-migrate-discovery-extension-events@v1.5.0
+````
+Reference Link
 https://phoenixnap.com/kb/git-tag-commit
