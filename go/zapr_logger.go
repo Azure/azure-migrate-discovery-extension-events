@@ -23,7 +23,7 @@ func (c *CustomLogger) Logr() logr.Logger {
 	return c.logr
 }
 
-// Adding annotation in custom logger.
+// Adding annotations in custom logger.
 func (c *CustomLogger) addAzureAnnotations(annotationsMap map[string]string) {
 	for annotationkey, annotationvalue := range annotationsMap {
 		// only adding azure annotations
