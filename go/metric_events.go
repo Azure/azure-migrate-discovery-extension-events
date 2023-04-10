@@ -28,7 +28,7 @@ type MetricEventId string
     }
 
 // Event methods
-    func GetSASURINotValidEvent(subscriptionId string, clientRequestId string, errorCode string, annotation SASURINotValidType) MetricEvent {
+    func SASURINotValidMetricEvent(subscriptionId string, clientRequestId string, errorCode string, annotation SASURINotValidType) MetricEvent {
         dimensionsDataCollection := map[string]string{}
         dimensionsDataCollection["SubscriptionId"] = subscriptionId
         dimensionsDataCollection["ClientRequestId"] = clientRequestId
@@ -39,28 +39,28 @@ type MetricEventId string
  
         return getMetricEvent(SASURINotValid, dimensionsDataCollection, annotationsDataCollection)
     }
-    func GetRoleStartEvent() MetricEvent {
+    func RoleStartMetricEvent() MetricEvent {
         dimensionsDataCollection := map[string]string{}
         
         annotationsDataCollection := map[string]string{}
  
         return getMetricEvent(RoleStart, dimensionsDataCollection, annotationsDataCollection)
     }
-    func GetRoleStopEvent() MetricEvent {
+    func RoleStopMetricEvent() MetricEvent {
         dimensionsDataCollection := map[string]string{}
         
         annotationsDataCollection := map[string]string{}
  
         return getMetricEvent(RoleStop, dimensionsDataCollection, annotationsDataCollection)
     }
-    func GetIISApplicationStartEvent() MetricEvent {
+    func IISApplicationStartMetricEvent() MetricEvent {
         dimensionsDataCollection := map[string]string{}
         
         annotationsDataCollection := map[string]string{}
  
         return getMetricEvent(IISApplicationStart, dimensionsDataCollection, annotationsDataCollection)
     }
-    func GetIISApplicationStopEvent(hostingEnvShutdownReason string) MetricEvent {
+    func IISApplicationStopMetricEvent(hostingEnvShutdownReason string) MetricEvent {
         dimensionsDataCollection := map[string]string{}
         dimensionsDataCollection["HostingEnvShutdownReason"] = hostingEnvShutdownReason
         

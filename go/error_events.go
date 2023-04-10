@@ -11,12 +11,12 @@ import (
 	"fmt"
 )
 
-func GetUnhandledException(errorCode string, errorMessage string, errortype string) ErrorEvent {
+func UnhandledErrorEvent(errorCode string, errorMessage string, errortype string) ErrorEvent{
     message := fmt.Sprintf("Internal error occured: %s, Message: %s, %s,.", errorCode, errorMessage, errortype)
     possibleCausess := "The operation failed due to an internal error."
     recommendedAction := "Retry the operation. If the issue persists, contact support."
     return getErrorEvent(
-        UnhandledException,
+        Unhandled,
         message,
         possibleCausess,
         recommendedAction,
@@ -26,12 +26,12 @@ func GetUnhandledException(errorCode string, errorMessage string, errortype stri
                     "Errortype": errortype ,
                 });
         }
-func GetNullRefException(reason string) ErrorEvent {
+func NullReferenceErrorEvent(reason string) ErrorEvent{
     message := fmt.Sprintf("Internal error occured: Message: %s,.", reason)
     possibleCausess := "The operation failed due to an internal error."
     recommendedAction := "Retry the operation. If the issue persists, contact support."
     return getErrorEvent(
-        NullRefException,
+        NullReference,
         message,
         possibleCausess,
         recommendedAction,

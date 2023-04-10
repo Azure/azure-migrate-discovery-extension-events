@@ -13,7 +13,7 @@ package discoveryextensionevents
         EntityDiscovered TelemetryEventId = 2002
 )
 
-        func GetEntityDiscoveredEvent(entityId string, entityType string, entityProperties string, executionTimeSec string, entityErrors string) TelemetryEvent {
+        func EntityDiscoveredTelemetryEvent(entityId string, entityType string, entityProperties string, executionTimeSec string, entityErrors string) TelemetryEvent {
             return getTelemetryEvent (
               EntityDiscovered,
               map[string]string {

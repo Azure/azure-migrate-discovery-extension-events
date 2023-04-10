@@ -10,7 +10,7 @@ package discoveryextensionevents
 type AgentErrorCode int
 
 const (
-    UnhandledException AgentErrorCode = 950
-    NullRefException AgentErrorCode = 951
+    Unhandled AgentErrorCode = 950
+    NullReference AgentErrorCode = 951
 )
 
