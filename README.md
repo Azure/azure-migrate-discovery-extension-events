@@ -1,6 +1,6 @@
 **To Consume the Go module**
-1. Use go get to fetch the module with latest verison ```go get github.com/Azure/AzureMigrate-discoveryclusterextension-event```.
-2. For module with specific commit/version use ```go get github.com/Azure/AzureMigrate-discoveryclusterextension-event@<commit-id>```.
+1. Use go get to fetch the module with latest verison ```go get github.com/Azure/azure-migrate-discovery-extension-events```.
+2. For module with specific commit/version use ```go get go get github.com/Azure/azure-migrate-discovery-extension-events@<commit-id>```.
 
 **To add new Events**
 1. Add new events in the Telemetry.xml, Error.xml or Metrics.xml in  AzureMigrate-ClusterExtensionCommon repo (https://msazure.visualstudio.com/One/_git/AzureMigrate-ClusterExtensionCommon?path=/src/DiscoveryClusterExtension/EventXml).
