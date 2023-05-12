@@ -1,8 +1,45 @@
 **To Consume the Go module**
 1. Use go get to fetch the module with latest verison ```go get github.com/Azure/azure-migrate-discovery-extension-events```.
 2. For module with specific commit/version use ```go get go get github.com/Azure/azure-migrate-discovery-extension-events@<commit-id>```.
+3. In your controller reconciler.
 
-**To add new Events**
+You can use funcitons provided in https://github.com/Azure/azure-migrate-discovery-extension-events/blob/main/go/zapr_logger.go
+
+a. **To Log Error Events**
+````
+  azureLogger := AzureLogger(ctx, cr.GetAnnotations())
+  ne := discoveryextensionevents.NullReferenceErrorEvent("null ref while accessing x variable")
+  discoveryextensionevents.azureLogger.LogErrorEvent(ne)
+````
+b. **To Log Metric Events**
+````
+  azureLogger := AzureLogger(ctx, cr.GetAnnotations())
+  me := discoveryextensionevents.RoleStartMetricEvent()
+  discoveryextensionevents.azureLogger.LogMetricEvent(me);
+````
+
+c. **To Log Telemetry Events**
+````
+  azureLogger := AzureLogger(ctx, cr.GetAnnotations())
+  te := discoveryextensionevents.EntityDiscoveredTelemetryEvent()
+  discoveryextensionevents.azureLogger.LogTelemetryEvent(te)
+````
+
+
+d. **To Log Error Messages**
+````
+azureLogger.logr.Error(err, "Failed to get Seed Discovery Entity, lets requeue for reconcilation.")
+````
+
+e. **To Log Info Messages**
+````
+ azureLogger.logr.V(2).Info("Seed Discovery Entity has already been reconciled, skip...",
+			"spec.Generation", cr.Generation,
+			"status.Generation", cr.Status.ObservedGeneration);
+````
+
+
+**To Add New Events**
 1. Add new events in the Telemetry.xml, Error.xml or Metrics.xml in  AzureMigrate-ClusterExtensionCommon repo (https://msazure.visualstudio.com/One/_git/AzureMigrate-ClusterExtensionCommon?path=/src/DiscoveryClusterExtension/EventXml).
 
 2. Kick off official build after PR merge.
